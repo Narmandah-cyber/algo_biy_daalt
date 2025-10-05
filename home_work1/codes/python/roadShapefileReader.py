@@ -1,7 +1,13 @@
 import geopandas as gpd
 import matplotlib.pyplot as plt
 
-roads = gpd.read_file("gis_osm_roads_free_1.shp")
+# Read the file path from roadFile.txt
+with open("roadFile.txt", "r") as f:
+    road_path = f.read().strip()
+
+
+# Load shapefile
+roads = gpd.read_file(road_path)
 
 # Filter by bounding box (minx, miny, maxx, maxy)
 ub_bounds = (106.7, 47.7, 107.2, 48.1)
